@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940187588}
   m_LocalRotation: {x: -0, y: 0.707107, z: -0, w: 0.70710665}
-  m_LocalPosition: {x: -17.54, y: 2.7, z: -1.68}
+  m_LocalPosition: {x: -13.29, y: 4.93, z: -4.34}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 7086004929881871476}
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carNpc: {fileID: 7175122058425269285, guid: 107314f050f1658488bd99e14c06e9f6, type: 3}
-  spawnTime: 2
+  spawnTime: 5
 --- !u!1 &1964638003
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +70,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964638003}
   m_LocalRotation: {x: -0, y: -0.7071064, z: 0, w: 0.70710725}
-  m_LocalPosition: {x: 41.6, y: 0.13, z: -7.61}
+  m_LocalPosition: {x: 36.83, y: 3.67, z: -12.41}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 7086004929881871476}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carNpc: {fileID: 7175122058425269285, guid: 107314f050f1658488bd99e14c06e9f6, type: 3}
-  spawnTime: 2
+  spawnTime: 5
 --- !u!1 &4616831054420209379
 GameObject:
   m_ObjectHideFlags: 0
