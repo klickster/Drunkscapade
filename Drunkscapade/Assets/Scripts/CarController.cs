@@ -15,6 +15,18 @@ public class CarController : MonoBehaviour
     {
         rb.velocity = transform.forward * speed;
 
-        //if (transform.position.y < 50) Destroy(gameObject);
+        if (transform.position.y < 0) Destroy(gameObject);
+    }
+
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag.Equals("Player"))
+        {
+            var player = other.gameObject.GetComponent<PlayerController>();
+
+            // TODO: add player force
+            // if(player != null) 
+        }
     }
 }
