@@ -14,5 +14,7 @@ public class CarController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = transform.forward * speed;
+
+        //if (transform.position.y < 50) Destroy(gameObject);
     }
 }
