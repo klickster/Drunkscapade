@@ -6,13 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private bool _testingMovement = true;
+    [SerializeField] private float _jumpForce;
     
     private Vector3 _movementDirection;
     private PlayerController _player;
+    private Rigidbody _rb;
     
     void Awake()
     {
         _player = GetComponent<PlayerController>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -47,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.D))
                 MoveRight();
         }
+        
+        if(Input.GetKeyDown(KeyCode.Space))
+            _rb.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
             
         _player.AttemptToMovePlayer(_movementDirection * (_speed * Time.deltaTime));
     }
