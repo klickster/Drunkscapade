@@ -10,23 +10,22 @@ public class PlayerMovement : MonoBehaviour
     
     void Start()
     {
-        InputManager.Instance.OnPressMoveForward.AddListener(MoveForward);
     }
 
     void Update()
     {
         _movementDirection = Vector3.zero;
-        //TEMPORAL
-        if(Input.GetKey(KeyCode.W))
+        
+        if(InputManager.Instance.IsMovingForward)
             MoveForward();
         
-        if(Input.GetKey(KeyCode.S))
+        if(InputManager.Instance.IsMovingBackward)
             MoveBackwards();
         
-        if(Input.GetKey(KeyCode.A))
+        if(InputManager.Instance.IsMovingLeft)
             MoveLeft();
         
-        if(Input.GetKey(KeyCode.D))
+        if(InputManager.Instance.IsMovingRight)
             MoveRight();
             
         transform.position += _movementDirection * (_speed * Time.deltaTime);

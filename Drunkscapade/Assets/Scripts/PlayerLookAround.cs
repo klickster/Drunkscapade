@@ -20,9 +20,7 @@ public class PlayerLookAround : MonoBehaviour
     {
         float mouseX = Input.GetAxisRaw("Mouse X") * _mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxisRaw("Mouse Y") * _mouseSensitivity * Time.deltaTime;
-
-        Debug.Log("AXIS = " + Input.GetAxis("Mouse X"));
-        Debug.Log(mouseX);
+        
         _xRotation -= mouseY;
         _xRotation = Mathf.Clamp(_xRotation, _mouseYRotationRange.x, _mouseYRotationRange.y);
 
