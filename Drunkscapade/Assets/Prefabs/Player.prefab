@@ -171,4 +171,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mouseSensitivity: 150
   _mouseYRotationRange: {x: -30, y: 30}
-  _playerBody: {fileID: 9145319684877507311}
+  _player: {fileID: 3934240593391394011}
