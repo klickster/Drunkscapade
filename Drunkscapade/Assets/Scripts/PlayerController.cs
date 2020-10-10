@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Sleepy")]
     [SerializeField] private float _sleepRatio = 0.5f;
     [SerializeField] private float _wakeUpRatio = 5;
     [SerializeField] private float _maxWakeyness = 100f;
+    [Header("Tumble")]
+    [SerializeField] private float _tumbleSpeed;
+    [SerializeField] private Transform _tumbleOrientator;
+    [SerializeField] private float _tumbleCooldown = 8f;
+    [SerializeField] private float _tumbleDuration = 2f;
+    [Header("Canvas")]
     [SerializeField] private CanvasController _canvasController;
     [SerializeField, Range(0, 1)] private float _drunkyness;
-    [SerializeField] private Vector2 _tumbleSpeedRange;
-    [SerializeField] private float _tumbleDuration = 3f;
 
     private bool _isFallingAsleep;
     private float _wakeyness;
@@ -23,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private float _initialTumblingTime;
 
     private bool _falling;
+    private float _t;
     private bool _fallLeft;
 
     private Vector3 _drunkenMovement;
@@ -31,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating(nameof(Tumble), .5f, _tumbleDuration + .5f);
+        InvokeRepeating(nameof(Tumble), _tumbleCooldown, _tumbleCooldown);
     }
 
     void Update()
@@ -52,29 +58,39 @@ public class PlayerController : MonoBehaviour
 
             var currentWakePercetange = _wakeyness / _maxWakeyness;
             _canvasController.UpdateWakeUpBar(currentWakePercetange);
-
             if (currentWakePercetange >= 1)
                 WakeUp();
         }
 
         if(_tumbling)
         {
-            var t = (Time.time - _initialTumblingTime) / _tumbleDuration;
+            _t = (Time.time - _initialTumblingTime) / _tumbleDuration;
 
-            _currentTumbleSpeed = Mathf.Lerp(_currentTumbleSpeed, 0, t);
+            _currentTumbleSpeed = Mathf.Lerp(_tumbleSpeed, 0, _t);
             _drunkenMovement = _tumbleDirection * _currentTumbleSpeed * Time.deltaTime;
+            if(_t >= 1)
+            {
+                StopTumble();
+            }
         }
-
 
         MovePlayer();
     }
 
     private void Tumble()
     {
-        _tumbleDirection = new Vector3(Random.Range(0f, 1f), 0, Random.Range(0f, 1f));
+        _tumbleDirection = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1f, 1f));
+        _tumbleOrientator.DOLocalRotate(new Vector3(0,0, 24 * (_tumbleDirection.x < 0 ? -1: 1)), 
+                                    _tumbleDuration);
         _initialTumblingTime = Time.time;
-        _currentTumbleSpeed = Random.Range(_tumbleSpeedRange.x, _tumbleSpeedRange.y);
+        _currentTumbleSpeed = _tumbleSpeed;
         _tumbling = true;
+    }
+
+    private void StopTumble()
+    {
+        _tumbling = false;
+        _tumbleOrientator.DOLocalRotate(new Vector3(0,0, 0), _tumbleDuration / 2);
     }
 
     public void StartFallingSleep()

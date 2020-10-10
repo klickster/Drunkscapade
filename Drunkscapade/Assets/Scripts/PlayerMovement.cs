@@ -6,8 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private bool _testingMovement = true;
+    [Header("Jump")]
+    [SerializeField] private LayerMask _floorLayer;
+    [SerializeField] private Transform _checkFloorTransform;
+    [SerializeField] private float _floorDistance = .4f;
     [SerializeField] private float _jumpForce;
-    
+
+    private bool _isGrounded;
     private Vector3 _movementDirection;
     private PlayerController _player;
     private Rigidbody _rb;
@@ -21,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         _movementDirection = Vector3.zero;
+        _isGrounded = Physics.CheckSphere(_checkFloorTransform.position, _floorDistance, _floorLayer);
 
         if (!_testingMovement)
         {
@@ -50,11 +56,11 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.D))
                 MoveRight();
         }
-        
-        if(Input.GetKeyDown(KeyCode.Space))
-            _rb.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
             
         _player.AttemptToMovePlayer(_movementDirection * (_speed * Time.deltaTime));
+
+        if (_isGrounded && Input.GetKeyDown(KeyCode.Space))
+            _rb.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
     }
 
     void MoveForward()
