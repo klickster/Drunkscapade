@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private float _speed;
+    
+    private Vector3 _movementDirection;
+    
     void Start()
     {
-        
+        InputManager.Instance.OnPressMoveForward.AddListener(MoveForward);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.position += _movementDirection * (_speed * Time.deltaTime);
+    }
+
+    void MoveForward()
+    {
+        Debug.Log("Moving forward");
+        _movementDirection += transform.forward;
+    }
+
+    void MoveBackwards()
+    {
+        _movementDirection -= transform.forward;
     }
 }
