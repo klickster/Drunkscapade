@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private bool _testingMovement = true;
     
     private Vector3 _movementDirection;
     private PlayerController _player;
@@ -17,18 +18,35 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         _movementDirection = Vector3.zero;
-        
-        if(InputManager.Instance.IsMovingForward)
-            MoveForward();
-        
-        if(InputManager.Instance.IsMovingBackward)
-            MoveBackwards();
-        
-        if(InputManager.Instance.IsMovingLeft)
-            MoveLeft();
-        
-        if(InputManager.Instance.IsMovingRight)
-            MoveRight();
+
+        if (!_testingMovement)
+        {
+            if (InputManager.Instance.IsMovingForward)
+                MoveForward();
+
+            if (InputManager.Instance.IsMovingBackward)
+                MoveBackwards();
+
+            if (InputManager.Instance.IsMovingLeft)
+                MoveLeft();
+
+            if (InputManager.Instance.IsMovingRight)
+                MoveRight();
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.W))
+                MoveForward();
+
+            if (Input.GetKey(KeyCode.S))
+                MoveBackwards();
+
+            if (Input.GetKey(KeyCode.A))
+                MoveLeft();
+
+            if (Input.GetKey(KeyCode.D))
+                MoveRight();
+        }
             
         _player.AttemptToMovePlayer(_movementDirection * (_speed * Time.deltaTime));
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3934240593391394011}
   - component: {fileID: 9145319684877507296}
   - component: {fileID: 9145319684877507299}
+  - component: {fileID: 1740305121}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -46,10 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb97e00e69f0894b9736794ca423c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sleepRatio: 0.2
+  _sleepRatio: 0.25
   _wakeUpRatio: 6
   _maxWakeyness: 100
-  _wakeUpBar: {fileID: 0}
+  _canvasController: {fileID: 1740305121}
+  _drunkyness: 0
+  _tumbleSpeedRange: {x: 8, y: 16}
+  _tumbleDuration: 8
 --- !u!114 &9145319684877507296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+  _testingMovement: 1
 --- !u!136 &9145319684877507299
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -77,6 +82,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1740305121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145319684877507298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9feb34aea7ddd484eb108b5691514c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wakeUpBar: {fileID: 0}
 --- !u!1 &9145319685188552871
 GameObject:
   m_ObjectHideFlags: 0

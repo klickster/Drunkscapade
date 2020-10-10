@@ -10,16 +10,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxWakeyness = 100f;
     [SerializeField] private CanvasController _canvasController;
     [SerializeField, Range(0, 1)] private float _drunkyness;
+    [SerializeField] private Vector2 _tumbleSpeedRange;
+    [SerializeField] private float _tumbleDuration = 3f;
 
     private bool _isFallingAsleep;
     private float _wakeyness;
-    [SerializeField] private Vector3 _drunkenMovement;
+
+    private bool _tumbling;
+    private Vector3 _tumbleDirection;
+    private float _currentTumbleSpeed;
+    private float _tumbleSpeedDecreaseRatio;
+    private float _initialTumblingTime;
+
+    private Vector3 _drunkenMovement;
     private Vector3 _desiredMovement;
     private Vector3 _movement;
 
     void Start()
     {
-        
+        InvokeRepeating(nameof(Tumble), .5f, _tumbleDuration + .5f);
     }
 
     void Update()
@@ -27,7 +36,7 @@ public class PlayerController : MonoBehaviour
         _movement = Vector3.zero;
 
         if (Input.GetKeyDown(KeyCode.P))
-            StartFallingSleep();
+            Tumble();
 
         if (_isFallingAsleep)
         {
@@ -45,7 +54,23 @@ public class PlayerController : MonoBehaviour
                 WakeUp();
         }
 
+        if(_tumbling)
+        {
+            var t = (Time.time - _initialTumblingTime) / _tumbleDuration;
+
+            _currentTumbleSpeed = Mathf.Lerp(_currentTumbleSpeed, 0, t);
+            _drunkenMovement = _tumbleDirection * _currentTumbleSpeed * Time.deltaTime;
+        }
+
         MovePlayer();
+    }
+
+    private void Tumble()
+    {
+        _tumbleDirection = new Vector3(Random.Range(0f, 1f), 0, Random.Range(0f, 1f));
+        _initialTumblingTime = Time.time;
+        _currentTumbleSpeed = Random.Range(_tumbleSpeedRange.x, _tumbleSpeedRange.y);
+        _tumbling = true;
     }
 
     public void StartFallingSleep()
