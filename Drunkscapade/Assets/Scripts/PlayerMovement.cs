@@ -7,9 +7,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed;
     
     private Vector3 _movementDirection;
+    private PlayerController _player;
     
-    void Start()
+    void Awake()
     {
+        _player = GetComponent<PlayerController>();
     }
 
     void Update()
@@ -28,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         if(InputManager.Instance.IsMovingRight)
             MoveRight();
             
-        transform.position += _movementDirection * (_speed * Time.deltaTime);
+        _player.AttemptToMovePlayer(_movementDirection * (_speed * Time.deltaTime));
     }
 
     void MoveForward()
