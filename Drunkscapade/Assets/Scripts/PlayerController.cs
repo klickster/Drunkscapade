@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
     private float _tumbleSpeedDecreaseRatio;
     private float _initialTumblingTime;
 
+    private bool _falling;
+    private bool _fallLeft;
+
     private Vector3 _drunkenMovement;
     private Vector3 _desiredMovement;
     private Vector3 _movement;
@@ -61,6 +64,7 @@ public class PlayerController : MonoBehaviour
             _currentTumbleSpeed = Mathf.Lerp(_currentTumbleSpeed, 0, t);
             _drunkenMovement = _tumbleDirection * _currentTumbleSpeed * Time.deltaTime;
         }
+
 
         MovePlayer();
     }

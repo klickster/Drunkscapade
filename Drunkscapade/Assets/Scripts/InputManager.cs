@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour
 {
@@ -9,13 +12,16 @@ public class InputManager : MonoBehaviour
     private KeyCode _moveBackward;
     private KeyCode _moveRight;
     private KeyCode _moveLeft;
-
-    //[SerializeField] private KeyCode[] _movementKeys = { _moveForward, _moveBackward, _moveRight, _moveLeft };
-
     private KeyCode[] _keyCodes = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D };
 
     private List<int> _pickedKeys = new List<int>();
+    private UnityEvent _onKeyChanged = new UnityEvent();
 
+    public KeyCode MoveForward => _moveForward;
+    public KeyCode MoveBackward => _moveBackward;
+    public KeyCode MoveRight => _moveRight;
+    public KeyCode MoveLeft => _moveLeft;
+    public UnityEvent OnKeyChanged => _onKeyChanged;
     public bool IsMovingForward { get; private set; }
     public bool IsMovingBackward { get; private set; }
     public bool IsMovingRight { get; private set; }
@@ -64,12 +70,14 @@ public class InputManager : MonoBehaviour
         _moveLeft = GenerateRandomKeyCode();
         _moveRight = GenerateRandomKeyCode();
 
+        _onKeyChanged.Invoke();
+
         PopulatePickedKeys();
     }
 
     private KeyCode GenerateRandomKeyCode()
     {
-        int randomKey = UnityEngine.Random.Range(0, _pickedKeys.Count - 1);
+        int randomKey = UnityEngine.Random.Range(0, _pickedKeys.Count);
         KeyCode movementKey = _keyCodes[_pickedKeys[randomKey]];
         _pickedKeys.RemoveAt(randomKey);
         return movementKey;
