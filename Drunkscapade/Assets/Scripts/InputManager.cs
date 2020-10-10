@@ -27,6 +27,8 @@ public class InputManager : MonoBehaviour
     public bool IsMovingRight { get; private set; }
     public bool IsMovingLeft { get; private set; }
 
+    [SerializeField] private float _randomizeKeyTime = 10f;
+
     private void Awake()
     {
         if (Instance != null)
@@ -40,6 +42,7 @@ public class InputManager : MonoBehaviour
 
         PopulatePickedKeys();
         GenerateRandomKeyCodes();
+        InvokeRepeating("GenerateRandomKeyCodes", 0f, _randomizeKeyTime);
     }
 
     private void Update()

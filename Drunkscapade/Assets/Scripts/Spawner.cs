@@ -10,16 +10,25 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float spawnTime = 2f;
     private float cdSpawn;
 
-    void Update()
+    private void Awake()
+    {
+        SpawnCar();
+    }
+
+    private void Update()
     {
         cdSpawn += Time.deltaTime;
 
         if (cdSpawn >= spawnTime)
         {
-            var spawnedCar = Instantiate(carNpc, transform.position, Quaternion.identity);
-            spawnedCar.transform.forward = transform.forward;
-
+            SpawnCar();
             cdSpawn = 0;
         }
+    }
+
+    private void SpawnCar()
+    {
+        var spawnedCar = Instantiate(carNpc, transform.position, Quaternion.identity);
+        spawnedCar.transform.forward = transform.forward;
     }
 }
