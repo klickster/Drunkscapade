@@ -31,7 +31,7 @@ public class InputManager : MonoBehaviour
         {
             Instance = this;
         }
-        
+
         PopulatePickedKeys();
         GenerateRandomKeyCodes();
     }
@@ -56,7 +56,7 @@ public class InputManager : MonoBehaviour
             _pickedKeys.Add(n);
         }
     }
-    
+
     private void GenerateRandomKeyCodes()
     {
         _moveForward = GenerateRandomKeyCode();
@@ -66,7 +66,7 @@ public class InputManager : MonoBehaviour
 
         PopulatePickedKeys();
     }
-    
+
     private KeyCode GenerateRandomKeyCode()
     {
         int randomKey = UnityEngine.Random.Range(0, _pickedKeys.Count - 1);
