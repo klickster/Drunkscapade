@@ -13,4 +13,9 @@ public class PlayerController : MonoBehaviour
     {
         
     }
+
+    public void RotatePlayer(Vector3 rotation)
+    {
+        transform.Rotate(rotation);
+    }
 }

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9145319684877507311}
+  - component: {fileID: 3934240593391394011}
   - component: {fileID: 9145319684877507296}
   - component: {fileID: 9145319684877507299}
-  - component: {fileID: 3934240593391394011}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -34,6 +34,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3934240593391394011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145319684877507298}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb97e00e69f0894b9736794ca423c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9145319684877507296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb39ca837aa3e349a58488b215b26ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 3
 --- !u!136 &9145319684877507299
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -61,18 +73,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3934240593391394011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9145319684877507298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb97e00e69f0894b9736794ca423c19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9145319685188552871
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 9145319685188552866}
   - component: {fileID: 9145319685188552869}
   - component: {fileID: 9145319685188552868}
+  - component: {fileID: 409818652}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -156,3 +157,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9145319685188552871}
   m_Enabled: 1
+--- !u!114 &409818652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145319685188552871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36dd36281ebe3b34b9e89a67e2d40cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mouseSensitivity: 150
+  _mouseYRotationRange: {x: -30, y: 30}
+  _playerBody: {fileID: 9145319684877507311}
