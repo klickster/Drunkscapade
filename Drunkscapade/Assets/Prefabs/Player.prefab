@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1740305121}
   - component: {fileID: 9145319684877507299}
   - component: {fileID: 1740305124}
+  - component: {fileID: 1575094305957824997}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -51,7 +52,7 @@ MonoBehaviour:
   _sleepRatio: 0.25
   _wakeUpRatio: 6
   _maxWakeyness: 100
-  _canvasController: {fileID: 1740305121}
+  _canvasController: {fileID: 1575094305957824997}
   _drunkyness: 0
   _tumbleSpeedRange: {x: 8, y: 16}
   _tumbleDuration: 8
@@ -113,6 +114,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1575094305957824997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145319684877507298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9feb34aea7ddd484eb108b5691514c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wakeUpBar: {fileID: 0}
 --- !u!1 &9145319685188552871
 GameObject:
   m_ObjectHideFlags: 0
