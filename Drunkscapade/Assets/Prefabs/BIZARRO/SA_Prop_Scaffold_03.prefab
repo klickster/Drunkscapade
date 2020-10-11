@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 315105503831684515}
   - component: {fileID: 315105503833180799}
   - component: {fileID: 340385044490996973}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SA_Prop_Scaffold_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 315105503830799851}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
   m_LocalPosition: {x: -31.555473, y: -2.283268, z: 100.00271}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
