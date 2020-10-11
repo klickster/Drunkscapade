@@ -17,10 +17,9 @@ public class SceneLoader : MonoBehaviour
             Instance = this;
     }
 
-    private void Update()
+    public void ResetCurrentScene()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-            LoadScene("Level_1");
+        LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void LoadScene(string sceneName)
