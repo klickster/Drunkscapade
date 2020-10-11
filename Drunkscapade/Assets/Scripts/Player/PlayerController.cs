@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
 
     public bool IsFallingAsleep { get; private set; }
     public float WakeynessPercentage => _wakeynessPercentage;
+    public float DrunknessPercentage => _drunknessPercentage;
+    public bool IsDead => _isDead;
 
     private void Awake()
     {
@@ -82,7 +84,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
             AddDrunkness(15f);
 
-        if (_losingDrunkness)
+        if (_losingDrunkness && _currentDrunkness > 0)
         {
             _currentDrunkness -= _drunkDecayAmount;
             _drunknessPercentage = _currentDrunkness / _maxDrunkness;
@@ -134,12 +136,21 @@ public class PlayerController : MonoBehaviour
 
     public void StartFallingSleep()
     {
+        _losingDrunkness = false;
         IsFallingAsleep = true;
+        _canvasController.StartWakeUpEvent();
+    }
+    public void WakeUp()
+    {
+        _losingDrunkness = true;
+        IsFallingAsleep = false;
+        _wakeyness = _maxWakeyness;
+        _canvasController.EndWakeUpEvent();
     }
 
     private void Tumble()
     {
-        if (!_playerMovement.IsGrounded) return;
+        if (!_playerMovement.IsGrounded || IsFallingAsleep) return;
 
         _tumbleDirection = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1f, 1f));
         _tumbleOrientator.DOLocalRotate(new Vector3(0, 0, 24 * (_tumbleDirection.x < 0 ? -1 : 1)),
@@ -153,13 +164,6 @@ public class PlayerController : MonoBehaviour
     {
         _tumbling = false;
         _tumbleOrientator.DOLocalRotate(new Vector3(0, 0, 0), _tumbleDuration / 2);
-    }
-
-    public void WakeUp()
-    {
-        IsFallingAsleep = false;
-        _wakeyness = _maxWakeyness;
-        _canvasController.UpdateWakeUpBar(1);
     }
 
     public void AttemptToMovePlayer(Vector3 movement)

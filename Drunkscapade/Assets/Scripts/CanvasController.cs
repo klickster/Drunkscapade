@@ -12,6 +12,7 @@ public class CanvasController : MonoBehaviour
     [SerializeField] private Image _wakeUpBar;
     [SerializeField] private Color _awakeColor;
     [SerializeField] private Color _sleepColor;
+    [SerializeField] private GameObject _wakeUpEvent;
     [Header("Keys")]
     [SerializeField] private TextMeshProUGUI _forwardText;
     [SerializeField] private TextMeshProUGUI _backwardsText;
@@ -21,6 +22,7 @@ public class CanvasController : MonoBehaviour
     private void Start()
     {
         InputManager.Instance.OnKeyChanged.AddListener(UpdateKeys);
+        EndWakeUpEvent();
         UpdateKeys();
     }
 
@@ -41,5 +43,15 @@ public class CanvasController : MonoBehaviour
         _backwardsText.text = InputManager.Instance.MoveBackward.ToString();
         _leftText.text = InputManager.Instance.MoveLeft.ToString();
         _rightText.text = InputManager.Instance.MoveRight.ToString();
+    }
+
+    public void StartWakeUpEvent()
+    {
+        _wakeUpEvent.SetActive(true);
+    }
+    public void EndWakeUpEvent()
+    {
+        _wakeUpEvent.SetActive(false);
+        UpdateWakeUpBar(1);
     }
 }

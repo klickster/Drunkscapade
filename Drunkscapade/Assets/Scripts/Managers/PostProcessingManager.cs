@@ -24,23 +24,20 @@ public class PostProcessingManager : MonoBehaviour
 
         volume.profile.TryGetSettings(out chromaticAberrationLayer);
         volume.profile.TryGetSettings(out vignetteLayer);
+
+        vignetteLayer.active = true;
+        chromaticAberrationLayer.active = true;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            EnableChromaticAberration();
-        }
-
+        UpdateChromaticAberration();
         UpdateVignette();
     }
 
-    private void EnableChromaticAberration()
+    private void UpdateChromaticAberration()
     {
-        chromaticAberrationLayer.active = true;
-
-        chromaticAberrationLayer.intensity.value = _chromaticMaxIntensity;
+        chromaticAberrationLayer.intensity.value = 1 - player.DrunknessPercentage;
     }
 
     private void DisableChromaticAberration()
