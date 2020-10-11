@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _checkFloorTransform;
     [SerializeField] private float _floorDistance = .4f;
     [SerializeField] private float _jumpForce;
+    [SerializeField] private AudioSource _jumpSfx;
 
     private bool _isGrounded;
     private Vector3 _movementDirection;
@@ -62,7 +63,10 @@ public class PlayerMovement : MonoBehaviour
         _player.AttemptToMovePlayer(_movementDirection * (_speed * Time.deltaTime));
 
         if (_isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            _jumpSfx.Play();
             _rb.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
+        }
     }
 
     void MoveForward()

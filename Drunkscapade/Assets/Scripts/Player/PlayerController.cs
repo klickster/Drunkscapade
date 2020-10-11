@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _wakeUpRatio = 5;
     [SerializeField] private float _maxWakeyness = 100f;
     [SerializeField, Range(0f, 1f)] private float _startSleepEventPercentage;
+    [SerializeField] private AudioSource _leftSlap;
+    [SerializeField] private AudioSource _rightSlap;
     [Header("Tumble")]
     [SerializeField] private float _tumbleSpeed;
     [SerializeField] private Transform _tumbleOrientator;
@@ -22,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _drunkDecayAmount;
     [SerializeField] private float _drinkDuration;
     [SerializeField] private ParticleSystem _pukeParticles;
+    [Header("Sound Effects")]
+    [SerializeField] private AudioSource _pukeSfx;
+    [SerializeField] private AudioSource _burpSfx;
     [Header("Canvas")]
     [SerializeField] private CanvasController _canvasController;
 
@@ -63,16 +68,17 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        _wakeyness = _maxWakeyness;
-        _currentDrunkness = _initialDrunkness;
-        _losingDrunkness = true;
+        ResetPlayer();
         InvokeRepeating(nameof(Tumble), _tumbleCooldown, _tumbleCooldown);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
-            _isDead = false;
+        {
+            ResetPlayerPosition();
+            ResetPlayer();
+        }
 
         if (_isDead) return;
 
@@ -95,8 +101,17 @@ public class PlayerController : MonoBehaviour
         {
             _wakeyness -= _sleepEventRatio;
 
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0))
             {
+                _leftSlap.time = 0;
+                _leftSlap.Play();
+                _wakeyness += _wakeUpRatio;
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                _rightSlap.time = 0;
+                _rightSlap.Play();
                 _wakeyness += _wakeUpRatio;
             }
         }
@@ -150,7 +165,7 @@ public class PlayerController : MonoBehaviour
 
     private void Tumble()
     {
-        if (!_playerMovement.IsGrounded || IsFallingAsleep) return;
+        if (!_playerMovement.IsGrounded || IsFallingAsleep || !_canMove) return;
 
         _tumbleDirection = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1f, 1f));
         _tumbleOrientator.DOLocalRotate(new Vector3(0, 0, 24 * (_tumbleDirection.x < 0 ? -1 : 1)),
@@ -168,7 +183,7 @@ public class PlayerController : MonoBehaviour
 
     public void AttemptToMovePlayer(Vector3 movement)
     {
-        _desiredMovement = movement * (1 - _drunknessPercentage);
+        _desiredMovement = movement * (1 - (_drunknessPercentage / 1.2f));
     }
 
     public void MovePlayer()
@@ -187,13 +202,15 @@ public class PlayerController : MonoBehaviour
     public void PushPlayer(Vector3 force, bool kill = false)
     {
         _rb.AddForce(force, ForceMode.Impulse);
-        _isDead = kill;
+        if (kill)
+            KillPlayer();
     }
 
     public void AddDrunkness(float amount)
     {
         _losingDrunkness = false;
         _currentDrunkness += amount;
+        _burpSfx.Play();
         if(_currentDrunkness >= _maxDrunkness)
         {
             _currentDrunkness = _maxDrunkness;
@@ -205,15 +222,42 @@ public class PlayerController : MonoBehaviour
         Invoke(nameof(ResumeLosingDrunkness), _drinkDuration);
     }
 
-    private void Puke()
+    public void Puke()
     {
         _canMove = false;
         _pukeParticles.Play();
+        _pukeSfx.Play();
+        Invoke(nameof(AllowMovement), 1f);
     }
 
     private void ResumeLosingDrunkness()
     {
         _canMove = true;
         _losingDrunkness = true;
+    }
+
+    private void AllowMovement()
+    {
+        _canMove = true;
+    }
+
+    public void KillPlayer()
+    {
+        _isDead = true;
+        Invoke(nameof(ResetPlayer), 2f);
+        Invoke(nameof(ResetPlayerPosition), 2f);
+    }
+
+    public void ResetPlayer()
+    {
+        _wakeyness = _maxWakeyness;
+        _currentDrunkness = _initialDrunkness;
+        _losingDrunkness = true;
+        _isDead = false;
+    }
+
+    public void ResetPlayerPosition()
+    {
+        transform.position = GameManager.Instance.CurrentCheckPoint.position;
     }
 }

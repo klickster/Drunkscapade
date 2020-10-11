@@ -6,9 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private int _maxLevels;
+    [SerializeField] private Transform _spawnPoint;
 
-    private int _levelIndex = 1;
+    private Transform _currentCheckpoint;
+
+    public Transform CurrentCheckPoint => _currentCheckpoint;
 
     private void Awake()
     {
@@ -21,24 +23,16 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
+
+    private void Start()
+    {
+        _currentCheckpoint = _spawnPoint;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
-            LoadNextLevel();
-    }
-
-    public void WinCurrentLevel()
-    {
-        _levelIndex++;
-
-        if(_levelIndex > _maxLevels)
-        {
-            WinGame();
-        }
-        else
-        {
-            LoadNextLevel();
-        }
+            LoadGame();
     }
 
     public void ResetLevel()
@@ -46,13 +40,18 @@ public class GameManager : MonoBehaviour
         SceneLoader.Instance.ResetCurrentScene();
     }
 
-    public void LoadNextLevel()
+    public void LoadGame()
     {
-        SceneLoader.Instance.LoadScene("Level_" + _levelIndex);
+        SceneLoader.Instance.LoadScene("Level_1");
     }
 
     public void WinGame()
     {
         SceneLoader.Instance.LoadScene("GameOver");
+    }
+
+    public void SetNewCheckpoint(Transform checkPoint)
+    {
+        _currentCheckpoint = checkPoint;
     }
 }

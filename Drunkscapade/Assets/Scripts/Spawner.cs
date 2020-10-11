@@ -29,7 +29,7 @@ public class Spawner : MonoBehaviour
 
     private void SpawnCar()
     {
-        var spawnedCar = Instantiate(carsNpc[Random.Range(0, carsNpc.Length)], transform.position, Quaternion.identity);
+        var spawnedCar = Instantiate(carsNpc[Random.Range(0, carsNpc.Length)], transform.position, Quaternion.identity, transform);
         spawnedCar.transform.forward = transform.forward;
     }
 }

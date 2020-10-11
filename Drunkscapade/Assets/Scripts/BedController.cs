@@ -8,7 +8,7 @@ public class BedController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.LoadNextLevel();
+            GameManager.Instance.LoadGame();
         }
     }
 }

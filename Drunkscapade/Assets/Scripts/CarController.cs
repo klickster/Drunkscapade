@@ -9,7 +9,7 @@ public class CarController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        Destroy(gameObject, 25f);
+        Destroy(gameObject, 30f);
     }
 
     private void FixedUpdate()
