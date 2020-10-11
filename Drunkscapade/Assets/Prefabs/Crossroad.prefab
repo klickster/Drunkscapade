@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 940187589}
   - component: {fileID: 940187590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1964638004}
   - component: {fileID: 1964638005}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7086004929881871476}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crossroad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,6 +146,10 @@ PrefabInstance:
     - target: {fileID: 196528, guid: d24b470dbdfddb642b83fb47c028a310, type: 3}
       propertyPath: m_Name
       value: SA_Env_Road_Crossing_36 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 196528, guid: d24b470dbdfddb642b83fb47c028a310, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 424824, guid: d24b470dbdfddb642b83fb47c028a310, type: 3}
       propertyPath: m_LocalPosition.x
@@ -198,6 +202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SA_Env_Road_Straight_174 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 415068, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35
@@ -248,6 +256,10 @@ PrefabInstance:
     - target: {fileID: 136048, guid: 3c3c126336126254cb4c9f90fb4a5a2f, type: 3}
       propertyPath: m_Name
       value: SA_Env_Road_T_05 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 136048, guid: 3c3c126336126254cb4c9f90fb4a5a2f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 429042, guid: 3c3c126336126254cb4c9f90fb4a5a2f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -300,6 +312,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SA_Env_Road_Corner_26 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 108606, guid: 463f90f8336ba91428d2ee5666a153ac, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 436650, guid: 463f90f8336ba91428d2ee5666a153ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35
@@ -350,6 +366,10 @@ PrefabInstance:
     - target: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
       propertyPath: m_Name
       value: SA_Env_Road_Straight_179 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 415068, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -402,6 +422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SA_Env_Road_Straight_177 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 415068, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
@@ -452,6 +476,10 @@ PrefabInstance:
     - target: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
       propertyPath: m_Name
       value: SA_Env_Road_Straight_178 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 415068, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -504,6 +532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SA_Env_Road_Straight_173 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 415068, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30
@@ -554,6 +586,10 @@ PrefabInstance:
     - target: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
       propertyPath: m_Name
       value: SA_Env_Road_Straight_175 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 415068, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -606,6 +642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SA_Env_RoadStraight_Damaged_43 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 150242, guid: 18451d0e682abb84092c7607a204cb1a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 430340, guid: 18451d0e682abb84092c7607a204cb1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20
@@ -656,6 +696,10 @@ PrefabInstance:
     - target: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
       propertyPath: m_Name
       value: SA_Env_Road_Straight_180 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 415068, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -708,6 +752,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SA_Env_Road_Straight_176 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 152758, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 415068, guid: 7a80163190090ac4cad7a420833959c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -759,6 +807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SA_Env_Road_Corner_50 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 108606, guid: 463f90f8336ba91428d2ee5666a153ac, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 436650, guid: 463f90f8336ba91428d2ee5666a153ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35
@@ -809,6 +861,10 @@ PrefabInstance:
     - target: {fileID: 196528, guid: d24b470dbdfddb642b83fb47c028a310, type: 3}
       propertyPath: m_Name
       value: SA_Env_Road_Crossing_35 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 196528, guid: d24b470dbdfddb642b83fb47c028a310, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 424824, guid: d24b470dbdfddb642b83fb47c028a310, type: 3}
       propertyPath: m_LocalPosition.x
