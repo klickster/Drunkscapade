@@ -4,15 +4,55 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager Instance { get; private set; }
+
+    [SerializeField] private int _maxLevels;
+
+    private int _levelIndex = 1;
+
+    private void Awake()
     {
-        
+        if(Instance != null)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+            LoadNextLevel();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void WinCurrentLevel()
     {
-        
+        _levelIndex++;
+
+        if(_levelIndex > _maxLevels)
+        {
+            WinGame();
+        }
+        else
+        {
+            LoadNextLevel();
+        }
+    }
+
+    public void ResetLevel()
+    {
+        SceneLoader.Instance.ResetCurrentScene();
+    }
+
+    public void LoadNextLevel()
+    {
+        SceneLoader.Instance.LoadScene("Level_" + _levelIndex);
+    }
+
+    public void WinGame()
+    {
+        SceneLoader.Instance.LoadScene("GameOver");
     }
 }
