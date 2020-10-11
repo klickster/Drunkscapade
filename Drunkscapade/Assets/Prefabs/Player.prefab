@@ -109,15 +109,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb97e00e69f0894b9736794ca423c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sleepRatio: 0.25
-  _wakeUpRatio: 6
+  _sleepGameRatio: 0.01
+  _sleepEventRatio: 0.02
+  _wakeUpRatio: 2
   _maxWakeyness: 100
-  _tumbleSpeed: 4
+  _startSleepEventPercentage: 0.25
+  _tumbleSpeed: 3
   _tumbleOrientator: {fileID: 6114101992247140293}
   _tumbleCooldown: 8
   _tumbleDuration: 2
+  _maxDrunkness: 100
+  _initialDrunkness: 80
+  _drunkDecayAmount: 0.01
+  _drinkDuration: 1.5
+  _pukeParticles: {fileID: 5348402248259547874}
   _canvasController: {fileID: 0}
-  _drunkyness: 0.448
 --- !u!114 &9145319684877507296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb39ca837aa3e349a58488b215b26ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
-  _testingMovement: 0
+  _speed: 8
+  _testingMovement: 1
   _floorLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -149,9 +155,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.5
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!54 &1740305124
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -160,7 +166,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9145319684877507298}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -196,9 +202,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9145319685188552871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.13, z: 0}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5348402248259547873}
   m_Father: {fileID: 6114101992247140293}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -211,8 +218,8 @@ Camera:
   m_GameObject: {fileID: 9145319685188552871}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -226,7 +233,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 50
+  far clip plane: 1000
   field of view: 35
   orthographic: 0
   orthographic size: 5
@@ -330,3 +337,84 @@ MonoBehaviour:
   m_AfterStackBundles:
   - assemblyQualifiedName: BlurredViewPPSSettings, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1001 &1279216904410401147
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9145319685188552866}
+    m_Modifications:
+    - target: {fileID: 6627582858249091991, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+        type: 3}
+      propertyPath: m_Name
+      value: VomitParticle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627582858249091994, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627582858249091994, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.411
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627582858249091994, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.349
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627582858249091994, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627582858249091994, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627582858249091994, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627582858249091994, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627582858249091994, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627582858249091994, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627582858249091994, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627582858249091994, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fd4080cb04e5c4cfdba2a2b66f09b422, type: 3}
+--- !u!4 &5348402248259547873 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6627582858249091994, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+    type: 3}
+  m_PrefabInstance: {fileID: 1279216904410401147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5348402248259547874 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6627582858249091993, guid: fd4080cb04e5c4cfdba2a2b66f09b422,
+    type: 3}
+  m_PrefabInstance: {fileID: 1279216904410401147}
+  m_PrefabAsset: {fileID: 0}

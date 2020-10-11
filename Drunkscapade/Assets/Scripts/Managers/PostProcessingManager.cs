@@ -33,7 +33,7 @@ public class PostProcessingManager : MonoBehaviour
             EnableChromaticAberration();
         }
 
-        if (player.IsFallingAsleep) EnableVignette();
+        UpdateVignette();
     }
 
     private void EnableChromaticAberration()
@@ -48,7 +48,7 @@ public class PostProcessingManager : MonoBehaviour
         chromaticAberrationLayer.active = false;
     }
 
-    private void EnableVignette()
+    private void UpdateVignette()
     {
         if (!vignetteLayer.active)
         {
@@ -56,7 +56,7 @@ public class PostProcessingManager : MonoBehaviour
             vignetteLayer.intensity.value = _vignetteIntensity;
         }
 
-        vignetteLayer.intensity.value += _vignetteGrowthRatio;
-        vignetteLayer.smoothness.value += _vignetteGrowthRatio;
+        vignetteLayer.intensity.value = 1 - player.WakeynessPercentage;
+        vignetteLayer.smoothness.value = 1- player.WakeynessPercentage;
     }
 }

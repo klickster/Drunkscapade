@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-
     public GameObject carNpc;
 
     [SerializeField] private float spawnTime = 2f;

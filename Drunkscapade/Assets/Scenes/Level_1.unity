@@ -140,10 +140,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8466643276169120056, guid: 3de500f036ba3fc40876ac06102abfca,
+        type: 3}
+      propertyPath: _awakeColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8466643276169120056, guid: 3de500f036ba3fc40876ac06102abfca,
+        type: 3}
+      propertyPath: _awakeColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8466643276169120056, guid: 3de500f036ba3fc40876ac06102abfca,
+        type: 3}
+      propertyPath: _awakeColor.b
+      value: 0.1510973
+      objectReference: {fileID: 0}
+    - target: {fileID: -8466643276169120056, guid: 3de500f036ba3fc40876ac06102abfca,
+        type: 3}
+      propertyPath: _awakeColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8466643276169120056, guid: 3de500f036ba3fc40876ac06102abfca,
+        type: 3}
+      propertyPath: _sleepColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8466643276169120056, guid: 3de500f036ba3fc40876ac06102abfca,
+        type: 3}
+      propertyPath: _sleepColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8466643276169120056, guid: 3de500f036ba3fc40876ac06102abfca,
+        type: 3}
+      propertyPath: _sleepColor.b
+      value: 0.24174595
+      objectReference: {fileID: 0}
+    - target: {fileID: -8466643276169120056, guid: 3de500f036ba3fc40876ac06102abfca,
+        type: 3}
+      propertyPath: _sleepColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871220805336772928, guid: 3de500f036ba3fc40876ac06102abfca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731332125390699290, guid: 3de500f036ba3fc40876ac06102abfca,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9112058069795219576, guid: 3de500f036ba3fc40876ac06102abfca,
         type: 3}
       propertyPath: m_Name
       value: PlayerCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112058069795219579, guid: 3de500f036ba3fc40876ac06102abfca,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 9112058069795219588, guid: 3de500f036ba3fc40876ac06102abfca,
         type: 3}
