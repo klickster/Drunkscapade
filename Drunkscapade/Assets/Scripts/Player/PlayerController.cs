@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CanvasController _canvasController;
     [SerializeField, Range(0, 1)] private float _drunkyness;
 
-    private bool _isFallingAsleep;
     private float _wakeyness;
     private Rigidbody _rb;
     private PlayerMovement _playerMovement;
@@ -37,6 +36,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 _drunkenMovement;
     private Vector3 _desiredMovement;
     private Vector3 _movement;
+
+    public bool IsFallingAsleep { get; private set; }
 
     private void Awake()
     {
@@ -61,11 +62,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
             Tumble();
 
-        if (_isFallingAsleep)
+        if (IsFallingAsleep)
         {
             _wakeyness -= _sleepRatio;
 
-            if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
                 _wakeyness += _wakeUpRatio;
             }
@@ -76,13 +77,13 @@ public class PlayerController : MonoBehaviour
                 WakeUp();
         }
 
-        if(_tumbling)
+        if (_tumbling)
         {
             _t = (Time.time - _initialTumblingTime) / _tumbleDuration;
 
             _currentTumbleSpeed = Mathf.Lerp(_tumbleSpeed, 0, _t);
             _drunkenMovement = _tumbleDirection * _currentTumbleSpeed * Time.deltaTime;
-            if(_t >= 1)
+            if (_t >= 1)
             {
                 StopTumble();
             }
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
         if (!_playerMovement.IsGrounded) return;
 
         _tumbleDirection = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1f, 1f));
-        _tumbleOrientator.DOLocalRotate(new Vector3(0,0, 24 * (_tumbleDirection.x < 0 ? -1: 1)), 
+        _tumbleOrientator.DOLocalRotate(new Vector3(0, 0, 24 * (_tumbleDirection.x < 0 ? -1 : 1)),
                                     _tumbleDuration);
         _initialTumblingTime = Time.time;
         _currentTumbleSpeed = _tumbleSpeed;
@@ -106,18 +107,18 @@ public class PlayerController : MonoBehaviour
     private void StopTumble()
     {
         _tumbling = false;
-        _tumbleOrientator.DOLocalRotate(new Vector3(0,0, 0), _tumbleDuration / 2);
+        _tumbleOrientator.DOLocalRotate(new Vector3(0, 0, 0), _tumbleDuration / 2);
     }
 
     public void StartFallingSleep()
     {
         _wakeyness = 15;
-        _isFallingAsleep = true;
+        IsFallingAsleep = true;
     }
 
     public void WakeUp()
     {
-        _isFallingAsleep = false;
+        IsFallingAsleep = false;
         _wakeyness = _maxWakeyness;
         _canvasController.UpdateWakeUpBar(1);
     }
