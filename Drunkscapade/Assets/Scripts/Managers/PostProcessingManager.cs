@@ -14,6 +14,7 @@ public class PostProcessingManager : MonoBehaviour
     private void Start()
     {
         PostProcessVolume volume = GetComponent<PostProcessVolume>();
+        volume.profile.TryGetSettings(out chromaticAberrationLayer);
     }
 
     private void Update()
