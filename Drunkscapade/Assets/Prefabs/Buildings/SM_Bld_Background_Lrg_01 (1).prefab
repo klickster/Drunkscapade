@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7768299537129243930}
   - component: {fileID: 7757952252227081986}
   - component: {fileID: 7749393298861902424}
+  - component: {fileID: 2313033515771202985}
   m_Layer: 0
   m_Name: SM_Bld_Background_Lrg_01 (1)
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2313033515771202985
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7771379995432612712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f528e4334b3ce3c468fa3edc3f04156a, type: 3}
