@@ -15,6 +15,8 @@ public class SceneLoader : MonoBehaviour
             Destroy(this);
         else
             Instance = this;
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void ResetCurrentScene()
@@ -26,6 +28,11 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Loading");
         StartCoroutine(LoadSceneAsync(sceneName));
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     IEnumerator LoadSceneAsync(string sceneName)

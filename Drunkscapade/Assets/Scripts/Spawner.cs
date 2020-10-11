@@ -6,13 +6,13 @@ public class Spawner : MonoBehaviour
 {
     public GameObject[] carsNpc;
 
-    [SerializeField] private float spawnTime = 2f;
+    [SerializeField] private Vector2 spawnTimeRange = new Vector2(5, 20);
     private float cdSpawn;
     private float realSpawnTime;
 
     private void Start()
     {
-        realSpawnTime = Random.Range(spawnTime, spawnTime * 2f);
+        realSpawnTime = Random.Range(spawnTimeRange.x, spawnTimeRange.y);
     }
 
     private void Update()
@@ -23,7 +23,7 @@ public class Spawner : MonoBehaviour
         {
             SpawnCar();
             cdSpawn = 0;
-            realSpawnTime = Random.Range(spawnTime, spawnTime * 1.5f);
+            realSpawnTime = Random.Range(spawnTimeRange.x, spawnTimeRange.y);
         }
     }
 

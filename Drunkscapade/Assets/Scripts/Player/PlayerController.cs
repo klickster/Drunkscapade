@@ -95,6 +95,9 @@ public class PlayerController : MonoBehaviour
             _currentDrunkness -= _drunkDecayAmount;
             _drunknessPercentage = _currentDrunkness / _maxDrunkness;
             _canvasController.UpdateDrunkBar(_drunknessPercentage, 0);
+
+            if (_currentDrunkness <= 0)
+                KillPlayer();
         }
 
         if (IsFallingAsleep)
@@ -183,7 +186,7 @@ public class PlayerController : MonoBehaviour
 
     public void AttemptToMovePlayer(Vector3 movement)
     {
-        _desiredMovement = movement * (1 - (_drunknessPercentage / 1.2f));
+        _desiredMovement = movement;
     }
 
     public void MovePlayer()
