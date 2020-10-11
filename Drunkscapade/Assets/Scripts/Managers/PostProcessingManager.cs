@@ -25,7 +25,7 @@ public class PostProcessingManager : MonoBehaviour
 
     private void EnableChromaticAberration()
     {
-        chromaticAberrationLayer.enabled.value = true;
+        chromaticAberrationLayer.active = true;
 
         chromaticAberrationLayer.intensity.value = maxIntensity;
     }

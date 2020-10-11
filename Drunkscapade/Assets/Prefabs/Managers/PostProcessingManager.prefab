@@ -44,10 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed2952d91c8e914a822f8addcfd19f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 0
-  chromaticAberrationIntensity:
-    overrideState: 0
-    value: 0
+  maxIntensity: 1
 --- !u!114 &5446564599452927807
 MonoBehaviour:
   m_ObjectHideFlags: 0
