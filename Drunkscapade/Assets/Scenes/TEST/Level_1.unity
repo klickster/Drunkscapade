@@ -539,11 +539,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostProcessingManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5446564599452927800, guid: 8a3a74a451c10014489320a89ed5161a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5446564599452927801, guid: 8a3a74a451c10014489320a89ed5161a,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 461458721}
+    - target: {fileID: 5446564599452927801, guid: 8a3a74a451c10014489320a89ed5161a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5446564599452927806, guid: 8a3a74a451c10014489320a89ed5161a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -598,6 +608,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446564599452927807, guid: 8a3a74a451c10014489320a89ed5161a,
+        type: 3}
+      propertyPath: weight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a3a74a451c10014489320a89ed5161a, type: 3}
@@ -832,6 +847,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 324675199}
     m_Modifications:
+    - target: {fileID: 6140357223428650333, guid: 5491d6e95a611624485059db561b5159,
+        type: 3}
+      propertyPath: carsNpc.Array.data[0]
+      value: 
+      objectReference: {fileID: 7175122058425269285, guid: 107314f050f1658488bd99e14c06e9f6,
+        type: 3}
+    - target: {fileID: 6140357223428650333, guid: 5491d6e95a611624485059db561b5159,
+        type: 3}
+      propertyPath: carsNpc.Array.data[1]
+      value: 
+      objectReference: {fileID: 5235755467846740160, guid: 6e4a473742068dc4bba335ae521c502c,
+        type: 3}
+    - target: {fileID: 6140357223428650333, guid: 5491d6e95a611624485059db561b5159,
+        type: 3}
+      propertyPath: carsNpc.Array.data[2]
+      value: 
+      objectReference: {fileID: 1354961875588279924, guid: 5a6df4d2fe91f2747b1807d108468cf4,
+        type: 3}
+    - target: {fileID: 6140357224450758062, guid: 5491d6e95a611624485059db561b5159,
+        type: 3}
+      propertyPath: carsNpc.Array.data[0]
+      value: 
+      objectReference: {fileID: 7175122058425269285, guid: 107314f050f1658488bd99e14c06e9f6,
+        type: 3}
+    - target: {fileID: 6140357224450758062, guid: 5491d6e95a611624485059db561b5159,
+        type: 3}
+      propertyPath: carsNpc.Array.data[1]
+      value: 
+      objectReference: {fileID: 5235755467846740160, guid: 6e4a473742068dc4bba335ae521c502c,
+        type: 3}
+    - target: {fileID: 6140357224450758062, guid: 5491d6e95a611624485059db561b5159,
+        type: 3}
+      propertyPath: carsNpc.Array.data[2]
+      value: 
+      objectReference: {fileID: 1354961875588279924, guid: 5a6df4d2fe91f2747b1807d108468cf4,
+        type: 3}
     - target: {fileID: 6140357224648540572, guid: 5491d6e95a611624485059db561b5159,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -43,7 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775e856d96a8578459aa0a64d53cd9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carNpc: {fileID: 7175122058425269285, guid: 107314f050f1658488bd99e14c06e9f6, type: 3}
+  carsNpc:
+  - {fileID: 7175122058425269285, guid: 107314f050f1658488bd99e14c06e9f6, type: 3}
+  - {fileID: 5235755467846740160, guid: 6e4a473742068dc4bba335ae521c502c, type: 3}
+  - {fileID: 1354961875588279924, guid: 5a6df4d2fe91f2747b1807d108468cf4, type: 3}
   spawnTime: 5
 --- !u!1 &1964638003
 GameObject:
@@ -88,7 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775e856d96a8578459aa0a64d53cd9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carNpc: {fileID: 7175122058425269285, guid: 107314f050f1658488bd99e14c06e9f6, type: 3}
+  carsNpc:
+  - {fileID: 7175122058425269285, guid: 107314f050f1658488bd99e14c06e9f6, type: 3}
+  - {fileID: 5235755467846740160, guid: 6e4a473742068dc4bba335ae521c502c, type: 3}
+  - {fileID: 1354961875588279924, guid: 5a6df4d2fe91f2747b1807d108468cf4, type: 3}
   spawnTime: 5
 --- !u!1 &4616831054420209379
 GameObject:

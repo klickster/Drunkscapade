@@ -11,7 +11,10 @@ GameObject:
   - component: {fileID: 1839186123852788942}
   - component: {fileID: 3326402676658125675}
   - component: {fileID: 706281007842414497}
-  m_Layer: 0
+  - component: {fileID: -4154039756843146232}
+  - component: {fileID: 6589147421826349004}
+  - component: {fileID: 5234137421889702197}
+  m_Layer: 9
   m_Name: RedCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +86,50 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-4154039756843146232
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354961875588279924}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4155095, y: 2.1979046, z: 3.6507926}
+  m_Center: {x: 0, y: 1.3949177, z: 0.16239637}
+--- !u!114 &6589147421826349004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354961875588279924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b44b4d23a4322b4d817032d48d4f9a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 5234137421889702197}
+  speed: 5
+  pushForce: 75
+--- !u!54 &5234137421889702197
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354961875588279924}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &3936190015031274024
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +141,7 @@ GameObject:
   - component: {fileID: 1373798852592777669}
   - component: {fileID: 5340104594231288860}
   - component: {fileID: 1592591666192961300}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wheel_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +220,7 @@ GameObject:
   - component: {fileID: 4627727667998490498}
   - component: {fileID: 343285939262699397}
   - component: {fileID: 4319492712806388346}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wheel_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +299,7 @@ GameObject:
   - component: {fileID: 7278676200252796204}
   - component: {fileID: 2498405275138446372}
   - component: {fileID: 6023010064000684101}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +378,7 @@ GameObject:
   - component: {fileID: 6292655114723529119}
   - component: {fileID: 8702979814413501374}
   - component: {fileID: 4038114926439357149}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wheel_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

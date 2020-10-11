@@ -9,13 +9,12 @@ public class CarController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        Destroy(gameObject, 25f);
     }
 
     private void FixedUpdate()
     {
         rb.velocity = transform.forward * speed;
-
-        //if (transform.position.y < 0) Destroy(gameObject);
     }
 
 

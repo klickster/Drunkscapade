@@ -4,30 +4,32 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject carNpc;
+    public GameObject[] carsNpc;
 
     [SerializeField] private float spawnTime = 2f;
     private float cdSpawn;
+    private float realSpawnTime;
 
-    private void Awake()
+    private void Start()
     {
-        SpawnCar();
+        realSpawnTime = Random.Range(spawnTime, spawnTime * 2f);
     }
 
     private void Update()
     {
         cdSpawn += Time.deltaTime;
 
-        if (cdSpawn >= spawnTime)
+        if (cdSpawn >= realSpawnTime)
         {
             SpawnCar();
             cdSpawn = 0;
+            realSpawnTime = Random.Range(spawnTime, spawnTime * 1.5f);
         }
     }
 
     private void SpawnCar()
     {
-        var spawnedCar = Instantiate(carNpc, transform.position, Quaternion.identity);
+        var spawnedCar = Instantiate(carsNpc[Random.Range(0, carsNpc.Length)], transform.position, Quaternion.identity);
         spawnedCar.transform.forward = transform.forward;
     }
 }
