@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _movementDirection;
     private PlayerController _player;
     private Rigidbody _rb;
+
+    public bool IsGrounded => _isGrounded;
     
     void Awake()
     {

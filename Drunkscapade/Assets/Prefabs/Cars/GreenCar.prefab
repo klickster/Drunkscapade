@@ -416,6 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   speed: 5
+  pushForce: 75
 --- !u!54 &5517326534329024007
 Rigidbody:
   m_ObjectHideFlags: 0

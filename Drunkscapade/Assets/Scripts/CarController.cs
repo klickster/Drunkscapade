@@ -4,11 +4,11 @@ public class CarController : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private int speed;
+    [SerializeField] private float pushForce;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
     }
 
     private void FixedUpdate()
@@ -25,8 +25,10 @@ public class CarController : MonoBehaviour
         {
             var player = other.gameObject.GetComponent<PlayerController>();
 
-            // TODO: add player force
-            // if(player != null) 
+            if(player != null)
+            {
+                player.PushPlayer(transform.forward * pushForce, true);
+            }
         }
     }
 }

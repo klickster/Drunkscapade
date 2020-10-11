@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
 
     private bool _isFallingAsleep;
     private float _wakeyness;
+    private Rigidbody _rb;
+    private PlayerMovement _playerMovement;
+    private bool _isDead;
 
     private bool _tumbling;
     private Vector3 _tumbleDirection;
@@ -35,6 +38,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 _desiredMovement;
     private Vector3 _movement;
 
+    private void Awake()
+    {
+        _playerMovement = GetComponent<PlayerMovement>();
+        _rb = GetComponent<Rigidbody>();
+    }
+
     void Start()
     {
         InvokeRepeating(nameof(Tumble), _tumbleCooldown, _tumbleCooldown);
@@ -42,6 +51,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+            _isDead = false;
+
+        if (_isDead) return;
+
         _movement = Vector3.zero;
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -79,6 +93,8 @@ public class PlayerController : MonoBehaviour
 
     private void Tumble()
     {
+        if (!_playerMovement.IsGrounded) return;
+
         _tumbleDirection = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1f, 1f));
         _tumbleOrientator.DOLocalRotate(new Vector3(0,0, 24 * (_tumbleDirection.x < 0 ? -1: 1)), 
                                     _tumbleDuration);
@@ -120,5 +136,11 @@ public class PlayerController : MonoBehaviour
     public void RotatePlayer(Vector3 rotation)
     {
         transform.Rotate(rotation);
+    }
+
+    public void PushPlayer(Vector3 force, bool kill = false)
+    {
+        _rb.AddForce(force, ForceMode.Impulse);
+        _isDead = kill;
     }
 }
