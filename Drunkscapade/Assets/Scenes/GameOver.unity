@@ -353,10 +353,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'CONGRATULATIONS!
+  m_text: 'CoNgRaTUlaTiOnS!
 
 
-    YOU MADE IT TO YOUR BED!'
+    yoU MaDe IT tO YoUR bEd!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f43753c5d62577444a40f57665f66f53, type: 2}
   m_sharedMaterial: {fileID: -8572941269397509447, guid: f43753c5d62577444a40f57665f66f53,
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 83.9
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -402,7 +402,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 18
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alt + F4 to exit
+  m_text: AlT + F4 to eXIt
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f43753c5d62577444a40f57665f66f53, type: 2}
   m_sharedMaterial: {fileID: -8572941269397509447, guid: f43753c5d62577444a40f57665f66f53,
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 28.25
+  m_fontSize: 26.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
